@@ -7,29 +7,48 @@ namespace tdd_projeto
 {
     public class Calculadora
     {
+        private List<string> historico;
+
+        public Calculadora()
+        {
+            historico = new List<string>();
+        }
         public int Somar(int num1, int num2)
         {
-            return 0;
+            int resultado = num1 + num2;
+            historico.Insert(0, $"res: {resultado}");
+
+            return resultado;
         }
 
         public int Subtrair(int num1, int num2)
         {
-            return 0;
+            int resultado = num1 - num2;
+            historico.Insert(0, $"res: {resultado}");
+
+            return resultado;
         }
 
         public int Multiplicar(int num1, int num2)
         {
-            return 0;
+            int resultado = num1 * num2;
+            historico.Insert(0, $"res: {resultado}");
+
+            return resultado;
         }
 
         public int Dividir(int num1, int num2)
         {
-            return 0;
+            int resultado = num1 / num2;
+            historico.Insert(0, $"res: {resultado}");
+
+            return resultado;
         }
         
-        public List<string> RetornarHistorico(int num1, int num2)
+        public List<string> RetornarHistorico()
         {
-            return new List<string>();
+            historico.RemoveRange(3, historico.Count - 3);
+            return historico;
         }
     }
 }

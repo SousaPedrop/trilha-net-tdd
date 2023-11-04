@@ -9,12 +9,20 @@ namespace testes_tdd
 {
     public class CalculadoraTest
     {
+        public Calculadora ConstruirClasse()
+        {
+            string data = DateTime.Today.ToString();
+            Calculadora calc = new Calculadora(data);
+
+            return calc;
+        }
+
         [Theory]
         [InlineData(1, 2, 3)]
         [InlineData(4, 5, 9)]
         public void TesteSomar(int val1, int val2, int resultado)
         {
-            Calculadora calc = new Calculadora();
+            Calculadora calc = ConstruirClasse();
 
             int resultadoCalculadora = calc.Somar(val1, val2);
 
@@ -27,7 +35,7 @@ namespace testes_tdd
         [InlineData(15, 5, 10)]
         public void TesteSubtrair(int val1, int val2, int resultado)
         {
-            Calculadora calc = new Calculadora();
+            Calculadora calc = ConstruirClasse();
 
             int resultadoCalculadora = calc.Subtrair(val1, val2);
 
@@ -39,7 +47,7 @@ namespace testes_tdd
         [InlineData(4, 5, 20)]
         public void TesteMultiplicar(int val1, int val2, int resultado)
         {
-            Calculadora calc = new Calculadora();
+            Calculadora calc = ConstruirClasse();
 
             int resultadoCalculadora = calc.Multiplicar(val1, val2);
 
@@ -51,7 +59,7 @@ namespace testes_tdd
         [InlineData(5, 5, 1)]
         public void TesteDividir(int val1, int val2, int resultado)
         {
-            Calculadora calc = new Calculadora();
+            Calculadora calc = ConstruirClasse();
 
             int resultadoCalculadora = calc.Dividir(val1, val2);
 
@@ -62,7 +70,7 @@ namespace testes_tdd
         public void TestarDivisaoPorZero()
         {
             // Given
-            Calculadora calc = new Calculadora();
+            Calculadora calc = ConstruirClasse();
             // When
 
             // Then
@@ -73,7 +81,7 @@ namespace testes_tdd
         public void TestarHistorico()
         {
             // Given
-            Calculadora calc = new Calculadora();
+            Calculadora calc = ConstruirClasse();
             // When
             calc.Somar(1, 2);
             calc.Somar(3, 4);
